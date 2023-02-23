@@ -5,7 +5,7 @@
                 <p>{{ device.type }}</p>
                 <h1>{{ device.name }}</h1>
             </div>
-            <div class="flex items-center" v-if="device.hasOwnProperty('value')">
+            <div class="flex items-center" v-if="device.type === 'sensor'">
                 <div class="done" @click="modifyValue()">
                     <img src="@/assets/img/done.png" class="w-8">
                 </div>
@@ -14,7 +14,7 @@
                 </form>
                 <h1>&nbsp;{{ device.unit }}</h1>
             </div>
-            <div v-if="device.hasOwnProperty('on')">
+            <div v-if="device.type === 'ejecutor'">
                 <p>estado</p>
                 <h1>{{ device.on ? 'encendido' : 'apagado' }}</h1>
             </div>

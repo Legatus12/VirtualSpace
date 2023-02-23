@@ -1,8 +1,8 @@
 <template>
     <div class="page">
         <div class="devices">
-            <p v-for="device in devices" @click="router.push({name: 'device', params: { id: device.id}})">
-                {{ device.id }} - {{ device.data().name }}
+            <p v-for="device in devices" @click="router.push({name: 'device', params: { id: device.id }})">
+                {{ device.data().name }} - {{ device.id }}
             </p>
         </div>
     </div>
@@ -26,10 +26,9 @@ const router = useRouter()
 const devices = ref([])
 
 onMounted(() => {
-    getAll((docs) => docs.forEach(element => {
-        devices.value.push(element)
-        console.log('echo')
-    }))
+    getAll(docs => {
+        devices.value = []
+        docs.forEach(doc => devices.value.push(doc))})
 })
 
 </script>
