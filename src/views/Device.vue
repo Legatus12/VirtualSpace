@@ -53,7 +53,7 @@ onMounted(() => loadDevice())
 
 <style scoped>
 
-.device{ @apply flex flex-col gap-8 w-96 }
+.device{ @apply flex flex-col gap-8 w-fit }
 
 input{ @apply w-full h-full text-right text-[#121212] border-solid p-2 text-xl }
 
@@ -61,6 +61,6 @@ h1{ @apply text-3xl }
 
 p{ @apply text-[#aeaeae] }
 
-.done{ @apply bg-[#424242] hover:bg-[#646464] p-2 rounded-l-2xl cursor-pointer flex justify-center items-center }
+.done{ @apply h-10 bg-[#424242] hover:bg-[#646464] p-2 rounded-l-2xl cursor-pointer flex justify-center items-center }
 
 </style>
