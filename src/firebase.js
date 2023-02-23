@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore, doc, onSnapshot, updateDoc } from 'firebase/firestore'
+import { getFirestore, doc, onSnapshot, updateDoc, collection } from 'firebase/firestore'
 
 export const firebaseApp = initializeApp({
     apiKey: "AIzaSyAdChTp2cjnZCss2dMrv56HOol-e7ZfeD0",
@@ -15,3 +15,5 @@ const db = getFirestore(firebaseApp)
 
 export const getDevice = (id, callback) => onSnapshot(doc(db, "devices", id), callback)
 export const updateValue = (id, value) => updateDoc(doc(db, "devices", id), value)
+
+export const getAll = (callback) => onSnapshot(collection(db, "devices"), callback)

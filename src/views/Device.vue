@@ -5,11 +5,13 @@
                 <p>{{ device.type }}</p>
                 <h1>{{ device.name }}</h1>
             </div>
-            <div class="flex" v-if="device.hasOwnProperty('value')">
+            <div class="flex items-center" v-if="device.hasOwnProperty('value')">
                 <div class="done" @click="modifyValue()">
                     <img src="@/assets/img/done.png" class="w-8">
                 </div>
-                <input type="text" v-model="newValue" :placeholder="device.value">
+                <form class="h-full" @submit.prevent="modifyValue()">
+                    <input type="text" v-model="newValue" :placeholder="device.value">
+                </form>
                 <h1>&nbsp;{{ device.unit }}</h1>
             </div>
             <div v-if="device.hasOwnProperty('on')">
@@ -53,7 +55,7 @@ onMounted(() => loadDevice())
 
 .device{ @apply flex flex-col gap-8 w-96 }
 
-input{ @apply w-full text-right text-[#121212] border-solid p-2 text-xl }
+input{ @apply w-full h-full text-right text-[#121212] border-solid p-2 text-xl }
 
 h1{ @apply text-3xl }
 
